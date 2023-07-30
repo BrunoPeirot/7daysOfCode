@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day05</title>
+</head>
+<body>
+    <script>
+function agruparItensPorCategoria(itens) {
+  const categorias = {};
+
+  for (const item of itens) {
+    const categoria = item.categoria;
+
+    if (!categorias[categoria]) {
+      categorias[categoria] = [];
+    }
+
+    categorias[categoria].push(item.nome);
+  }
+
+  return categorias;
+}
+function listaDeCompras() {
+  const lista = [];
+
+  while (true) {
+    const adicionarItem = prompt("Deseja adicionar uma comida à lista de compras? (sim/não)");
+
+    if (adicionarItem.toLowerCase() === "não") {
+      break;
+    }
+
+    if (adicionarItem.toLowerCase() !== "sim") {
+      alert("Opção inválida. Por favor, responda com 'sim' ou 'não'.");
+      continue;
+    }
+
+    const nomeItem = prompt("Digite o nome do alimento:");
+    const categoriaItem = prompt("Em qual categoria esse alimento se encaixa? (frutas, laticínios, congelados, doces, etc.)");
+
+    lista.push({
+      nome: nomeItem,
+      categoria: categoriaItem,
+    });
+  }
+
+  const itensAgrupados = agruparItensPorCategoria(lista);
+  let resultado = "Lista de compras:\n";
+
+  for (const categoria in itensAgrupados) {
+    resultado += `    ${categoria}: ${itensAgrupados[categoria].join(", ")}\n`;
+  }
+
+  return resultado;
+}
+const listaAgrupada = listaDeCompras();
+alert(listaAgrupada);
+
+    </script>
+</body>
+</html>

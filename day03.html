@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day03</title>
+</head>
+<body>
+    <script>
+function mostrarDestinos() {
+  const destinos = [
+    "Praia",
+    "Montanha",
+    "Cidade",
+    "Ficar em casa",
+    "Sair do jogo"
+  ];
+
+  let mensagem = "========== Destinos Possíveis ==========\n";
+  for (let i = 0; i < destinos.length; i++) {
+    mensagem += `${i + 1}. ${destinos[i]}\n`;
+  }
+  mensagem += "=======================================\n";
+
+  return mensagem;
+}
+
+function jogar() {
+  let continuar = true;
+
+  while (continuar) {
+    let mensagemDestinos = mostrarDestinos();
+    let escolha = prompt(mensagemDestinos + "Escolha o número do destino desejado:");
+
+    switch (escolha) {
+      case '1':
+        alert("Você escolheu: Praia");
+        break;
+      case '2':
+        alert("Você escolheu: Montanha");
+        break;
+      case '3':
+        alert("Você escolheu: Cidade");
+        break;
+      case '4':
+        alert("Você escolheu: Ficar em casa");
+        break;
+      case '5':
+        alert("Obrigado por jogar! Até a próxima.");
+        continuar = false;
+        break;
+      default:
+        alert("Opção inválida. Por favor, escolha uma das opções listadas.");
+        break;
+    }
+  }
+}
+
+// Iniciando o jogo
+jogar();
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day06</title>
+</head>
+<body>
+    <script>
+        let listaCompras = [];
+
+function adicionarItem() {
+  let item = prompt("Digite o nome do item que deseja adicionar à lista de compras:");
+  listaCompras.push(item);
+  console.log(`${item} foi adicionado à lista de compras.`);
+}
+
+function removerItem() {
+  if (listaCompras.length === 0) {
+    console.log("A lista de compras está vazia. Não há itens para remover.");
+    return;
+  }
+
+  console.log("Itens na lista de compras:");
+  listaCompras.forEach((item, index) => {
+    console.log(`${index + 1}. ${item}`);
+  });
+
+  let itemRemover = prompt("Digite o número do item que deseja remover:");
+  let index = parseInt(itemRemover) - 1;
+  
+  if (isNaN(index) || index < 0 || index >= listaCompras.length) {
+    console.log("Índice inválido. Nenhum item foi removido.");
+    return;
+  }
+
+  let itemRemovido = listaCompras.splice(index, 1);
+  console.log(`${itemRemovido[0]} foi removido da lista de compras.`);
+}
+
+function main() {
+  while (true) {
+    let opcao = prompt("Você deseja adicionar uma comida na lista de compras? (S/N):").trim().toUpperCase();
+    if (opcao === "S") {
+      adicionarItem();
+    } else if (opcao === "N") {
+      let remover = prompt("Deseja remover algum item da lista? (S/N):").trim().toUpperCase();
+      if (remover === "S") {
+        removerItem();
+      } else if (remover === "N") {
+        console.log("Lista de compras atual:");
+        listaCompras.forEach((item) => {
+          console.log(item);
+        });
+      } else {
+        console.log("Opção inválida. Reiniciando o ciclo.");
+      }
+    } else {
+      console.log("Opção inválida. Reiniciando o ciclo.");
+    }
+  }
+}
+
+main();
+
+    </script>
+</body>
+</html>

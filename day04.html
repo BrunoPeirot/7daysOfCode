@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day04</title>
+</head>
+<body>
+    <script>
+        function adivinhacao() {
+    const numeroInicial = Math.floor(Math.random() * 11);
+    let tentativas = 3;
+
+    alert("Bem-vindo ao jogo de adivinhação! Tente adivinhar o número entre 0 e 10.");
+
+    while (tentativas > 0) {
+        const chute = parseInt(prompt("Digite o seu chute:"));
+
+        if (chute === numeroInicial) {
+            alert("Parabéns! Você acertou o número!");
+            return;
+        } else {
+            tentativas--;
+            if (tentativas > 0) {
+                alert(`Incorreto. Você tem mais ${tentativas} tentativa(s).`);
+            }
+        }
+    }
+
+    alert(`Suas tentativas acabaram! O número correto era: ${numeroInicial}.`);
+}
+
+adivinhacao();
+
+    </script>
+</body>
+</html>

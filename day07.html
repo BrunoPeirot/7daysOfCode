@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day07</title>
+  <script>
+    function soma(a, b) {
+      return a + b;
+    }
+
+    function subtracao(a, b) {
+      return a - b;
+    }
+
+    function multiplicacao(a, b) {
+      return a * b;
+    }
+
+    function divisao(a, b) {
+      if (b === 0) {
+        return "Erro: divisão por zero";
+      }
+      return a / b;
+    }
+
+    function main() {
+      while (true) {
+        let opcao = prompt("Escolha uma opção:\n1. Soma\n2. Subtração\n3. Multiplicação\n4. Divisão\n5. Sair").trim();
+
+        if (opcao === "5" || opcao.toLowerCase() === "sair") {
+          alert("Até a próxima!");
+          break;
+        }
+
+        let valor1 = parseFloat(prompt("Digite o primeiro valor:"));
+        let valor2 = parseFloat(prompt("Digite o segundo valor:"));
+
+        let resultado;
+        switch (opcao) {
+          case "1":
+            resultado = soma(valor1, valor2);
+            break;
+          case "2":
+            resultado = subtracao(valor1, valor2);
+            break;
+          case "3":
+            resultado = multiplicacao(valor1, valor2);
+            break;
+          case "4":
+            resultado = divisao(valor1, valor2);
+            break;
+          default:
+            alert("Opção inválida. Tente novamente.");
+            continue;
+        }
+
+        alert(`Resultado da operação: ${resultado}`);
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
